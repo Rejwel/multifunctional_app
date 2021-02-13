@@ -1,0 +1,113 @@
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+
+@keyframes click {
+    0% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bar
+{
+    from {
+        transform: translate3d(0,40px,0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 0.6;
+    }
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+}
+
+.calculator {
+    width: 105%;
+    text-align: center;
+    border-radius: 5px;
+    animation: .3s ease-in-out both fade-in;
+    background: linear-gradient(to right, #ddd6f3, #faaca8);
+}
+
+.number, .finalNumber, .result {
+    border: none;
+    background: rgb(254,172,94);
+    background: linear-gradient(to right, #7474bf, #348ac7);
+    background-attachment: fixed;
+    min-height: 40px;
+    min-width: 40px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    outline: 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.number:last-child, .row:last-child {
+    margin-right: 0px; 
+    margin-bottom: 0px;
+}
+
+.finalNumber {
+    min-width: 130px;
+}
+
+.number:active, .finalNumber:active {
+    animation: 10s click;
+}
+
+.result {
+    background: linear-gradient(to right, #7474bf, #348ac7);
+    position: relative;
+    text-align: right;
+    min-width: 100%;
+    min-height: 50px;
+    margin-right: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.result_inner_bottom {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+.result_inner_top {
+    opacity: 0.6;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    animation: bar 2s ease;
+}
+
+.result:focus {
+    outline: 0;
+}
+
+
