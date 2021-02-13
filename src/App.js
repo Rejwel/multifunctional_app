@@ -122,8 +122,15 @@ class App extends React.Component {
             
             // delNum
             case 9:
-
+                this.state.result.toString().slice(0, -1) === '-' ?
+                this.setState({
+                    result:  -this.state.result,
+                },
+                () => {this.setState({result: 0})}) :
                 this.state.result > 0 && this.state.result.toString().slice(0, -1) !== '' ?
+                this.setState({
+                    result: this.state.result.toString().slice(0, -1),
+                }) : this.state.result < 0 && this.state.result.toString().slice(0, -1) !== '' ?
                 this.setState({
                     result: this.state.result.toString().slice(0, -1),
                 }) :
