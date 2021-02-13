@@ -1,14 +1,11 @@
-@keyframes fade-in {
+@keyframes scale-up-center {
     0% {
-      opacity: 0;
       transform: scale(0);
     }
-    
     100% {
-      opacity: 1;
       transform: scale(1);
     }
-}
+  }
 
 @keyframes click {
     0% {
@@ -17,19 +14,6 @@
 
     100% {
         transform: scale(1);
-    }
-}
-
-@keyframes bar
-{
-    from {
-        transform: translate3d(0,40px,0);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate3d(0,0,0);
-        opacity: 0.6;
     }
 }
 
@@ -50,7 +34,7 @@ body {
     width: 105%;
     text-align: center;
     border-radius: 5px;
-    animation: .3s ease-in-out both fade-in;
+    animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     background: linear-gradient(to right, #ddd6f3, #faaca8);
 }
 
@@ -103,7 +87,6 @@ body {
     position: absolute;
     right: 10px;
     top: 10px;
-    animation: bar 2s ease;
 }
 
 .result:focus {

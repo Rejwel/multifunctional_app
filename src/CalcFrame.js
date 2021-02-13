@@ -78,6 +78,7 @@ class CalcFrame extends React.Component {
         7 - radical
         8 - pow
         9 - delNum
+        10 - changeNum
     */
     
     render() {
@@ -109,13 +110,13 @@ class CalcFrame extends React.Component {
                         {this.renderNumber(3)}
                         {this.renderFunction(3)}
                         {this.renderFunction(4)}
-                        {this.renderFunction(0)}
+                        {this.renderFunction(10)}
                     </div>
                     <div className="row">
                         {this.renderNumber(0)}
+                        {this.renderNumber(10)}
                         {this.renderFunction(6)}
                         {this.renderFunction(5)}
-                        {this.renderFunction(0)}
                     </div>
                 </div>
             </div>

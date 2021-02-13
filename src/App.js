@@ -12,21 +12,33 @@ class App extends React.Component {
             typed: false,
             result: 0,
             savedResult: 0,
-            numbers: Array.from(Array(10).keys()),
-            functions: ['C','+','-','*','/', '=', '.', '√', 'x^n', '◄'],
+            numbers: [0,1,2,3,4,5,6,7,8,9,'00'],
+            functions: ['C','+','-','*','/', '=', '.', '√', 'x^n', '◄', '+/-'],
             currentFunction: 0,
             startNumber: true,
-            dotUsed: false
         };
     }
 
-    Add(i) {
+    Add = (i) => {
         this.setState({typed: true});
         if(this.state.result.length < 50 || this.state.result.length === undefined) {
             this.state.startNumber ? 
             this.setState({result: this.state.numbers[i], startNumber: false}) : 
             this.setState({result: this.state.result +  '' + this.state.numbers[i]});
         }
+    }
+
+    AnimateElement = (element) => {
+        element.animate([
+            {
+                transform: 'translateY(15px)',
+                opacity: 0
+            },
+            {
+                transform: 'translateY(0)',
+                opacity: 0.6
+            }
+        ], 250);
     }
 
     Calculate = (i, a, b) => {
@@ -40,12 +52,12 @@ class App extends React.Component {
     }
 
     ReturnResult = (i) => {
+        this.AnimateElement(document.querySelector('.result_inner_top'));
         this.state.result !== 0 && this.state.savedResult !==0 ?
                 this.setState({
                     savedResult: this.Calculate(this.state.currentFunction, this.state.savedResult, this.state.result),
                     currentFunction: i,
                     result: 0,
-                    dotUsed: false,
                     startNumber: true,
                     typed: false,
                 }) :
@@ -54,7 +66,6 @@ class App extends React.Component {
                     currentFunction: i,
                     savedResult: this.state.result,
                     result: 0,
-                    dotUsed: false,
                     startNumber: true,
                     typed: false,
                 }) :
@@ -63,12 +74,12 @@ class App extends React.Component {
                 });
     }
 
-    Option(i) {
+    Option = (i) => {
         switch (i) {
             // clearing function
             case 0:
-                this.state.startNumber && this.setState({savedResult: 0, currentFunction: 0, typed: false, dotUsed: false});
-                this.setState({startNumber: true, result: 0, typed: false, dotUsed: false});
+                this.state.startNumber && this.setState({savedResult: 0, currentFunction: 0, typed: false});
+                this.setState({startNumber: true, result: 0, typed: false});
                 break;
 
             // add
@@ -94,8 +105,7 @@ class App extends React.Component {
                 
             // dot
             case 6:
-                !this.state.dotUsed && this.setState({result: this.state.result + "."})
-                this.setState({dotUsed: true})
+                !this.state.result.toString().includes('.') && this.setState({result: this.state.result + "."});
                 break;
 
             // sqrt
@@ -121,10 +131,11 @@ class App extends React.Component {
                     startNumber: true,
                     result: 0,
                 });
+                break;
 
-                this.state.result[this.state.result.length-1] === '.' &&
-                this.setState({ dotUsed: false });
-                
+            // changeNum
+            case 10:
+                this.setState({ result: -this.state.result });
                 break;
 
             case 5:
