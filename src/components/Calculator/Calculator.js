@@ -1,10 +1,8 @@
-import ReactDOM from 'react-dom';
-import React, { useState } from 'react';
+import React from 'react';
 import CalcFrame from './CalcFrame'
-import { unstable_concurrentAct } from 'react-dom/test-utils';
 
 
-class App extends React.Component {
+class Calculator extends React.Component {
 
     constructor(props) {
         super(props);
@@ -45,7 +43,7 @@ class App extends React.Component {
         if(i === 1) return (parseFloat(a) + parseFloat(b));
         if(i === 2) return (parseFloat(a) - parseFloat(b));
         if(i === 3) return (parseFloat(a) * parseFloat(b));
-        if(i === 4 && b != 0) return (parseFloat(a) / parseFloat(b)).toFixed(5);
+        if(i === 4 && b !== 0) return (parseFloat(a) / parseFloat(b)).toFixed(5);
         if(i === 7) return (Math.sqrt(parseFloat(b))).toFixed(5);
         if(i === 8) return (Math.pow(parseFloat(a), parseInt(b))).toFixed(5);
         return 0;
@@ -223,4 +221,4 @@ class App extends React.Component {
     }   
 }
 
-export default App
+export default Calculator

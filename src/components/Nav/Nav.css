@@ -1,0 +1,55 @@
+.burger {
+    background-color: #7D8B8C;
+    position: absolute;
+    top: 25px;
+    left: -25px;
+    opacity: 0.7;
+    border: none;
+    border-radius: 15px;
+    min-width: 75px;
+    min-height: 75px;
+    transition: 0.7s ease-in-out;
+}
+
+.burger:focus {
+    outline: 0;
+}
+
+.burger--active {
+    border-radius: 15px;
+    min-width: 340px;
+    transition: 0.7s ease-in-out;
+
+}
+
+.nav {
+    background-color: #909FA2;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 250px;
+    height: 100vh;
+    transform: translateX(-250px);
+    transition: 0.7s ease-in-out;
+}
+
+.navList {
+    list-style-type: none;
+}
+
+.navItem {
+    margin-top: 35px;
+
+}
+
+.navItem > a {
+    color: #BFCDD9;
+    font-size: x-large;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav--active {
+    transform: translateX(0px);
+    transition: 0.7s ease-in-out;
+}

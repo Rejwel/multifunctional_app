@@ -19,6 +19,7 @@
 
 html {
     height: 100%;
+    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
 }
 
 body {
@@ -31,22 +32,25 @@ body {
 }
 
 .calculator {
+    margin: 0;
     width: 105%;
     text-align: center;
     border-radius: 5px;
     animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    background: linear-gradient(to right, #ddd6f3, #faaca8);
+    background: #73B2D9;
 }
 
 .number, .finalNumber, .result {
+    font-weight: bold;
+    font-size: x-large;
     border: none;
     background: rgb(254,172,94);
-    background: linear-gradient(to right, #7474bf, #348ac7);
+    background: #235B8C;
     background-attachment: fixed;
-    min-height: 40px;
-    min-width: 40px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    min-height: 80px;
+    min-width: 80px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     text-align: center;
     outline: 0;
     border-radius: 5px;
@@ -59,7 +63,7 @@ body {
 }
 
 .finalNumber {
-    min-width: 130px;
+    min-width: 260px;
 }
 
 .number:active, .finalNumber:active {
@@ -67,26 +71,30 @@ body {
 }
 
 .result {
-    background: linear-gradient(to right, #7474bf, #348ac7);
+    background: #235B8C;
     position: relative;
     text-align: right;
     min-width: 100%;
-    min-height: 50px;
+    min-height: 100px;
     margin-right: 0;
     border-radius: 5px 5px 0 0;
 }
 
 .result_inner_bottom {
     position: absolute;
-    right: 10px;
-    bottom: 5px;
+    right: 20px;
+    bottom: 10px;
 }
 
 .result_inner_top {
     opacity: 0.6;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
+}
+
+.result_inner_top, .result_inner_bottom {
+    font-size: larger;
 }
 
 .result:focus {

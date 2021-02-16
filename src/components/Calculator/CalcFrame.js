@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import './CalcFrame.css'
 import ReactHtmlParser from 'react-html-parser'
 
